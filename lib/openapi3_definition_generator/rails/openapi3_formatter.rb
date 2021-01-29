@@ -27,8 +27,8 @@ module ActionDispatch
         end.each do |r|
           path = r[:path].gsub(/\(\.:format\)/, '')
           @openapi_structute['paths'][path] ||= {}
-          @openapi_structute['paths'][path][r[:verb].upcase] = {}
-          @openapi_structute['paths'][path][r[:verb].upcase] = {
+          @openapi_structute['paths'][path][r[:verb].downcase] = {}
+          @openapi_structute['paths'][path][r[:verb].downcase] = {
             'summary' => r[:name],
             'description' => r[:reqs],
             'responses' => nil
