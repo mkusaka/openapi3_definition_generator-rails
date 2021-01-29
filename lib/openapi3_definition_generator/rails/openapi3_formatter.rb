@@ -22,7 +22,7 @@ module ActionDispatch
       end
 
       def section(routes)
-        routes.filter do |r|
+        routes.select do |r|
           !r[:verb].empty?
         end.each do |r|
           @openapi_structute['paths'][r[:path]] ||= {}
